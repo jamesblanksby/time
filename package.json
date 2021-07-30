@@ -1,0 +1,15 @@
+{
+    "devDependencies": {
+        "browser-sync": "^2.26.14",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^4.1.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "log": "^6.0.0",
+        "log-node": "^7.0.0"
+    },
+    "browsers": [
+        "last 2 versions"
+    ]
+}

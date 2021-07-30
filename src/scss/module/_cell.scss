@@ -1,0 +1,318 @@
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////// CELL /// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+/* ------------------------------------------------------------------ SECTION --- */
+section.cell {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    padding: 1.25rem;
+    flex-direction: column;
+    background-color: var(--theme-background);
+}
+section.cell:last-child {
+    @media (max-width: $break0) {
+        padding-bottom: calc((1.25rem + env(safe-area-inset-bottom)));
+    }
+}
+
+/* ------------------------------------------------------------- CELL : TITLE --- */
+section.cell.title {
+    z-index: 2;
+}
+section.cell.title h1 {
+    margin-bottom: 0.375em;
+    color: var(--theme-color);
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+section.cell.title .theme {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    padding: 4px 8px;
+    align-items: center;
+    flex-direction: row;
+    background-color: white;
+    border: 1px solid var(--theme-border);
+    border-radius: 4px;
+    @media (min-width: ($break0 + 1px)) {
+        margin: 1.25em;
+    }
+    @media (max-width: $break0) {
+        top: 50%;
+        margin-right: 1.25em;
+        transform: translateY(-50%);
+    }
+}
+section.cell.title .theme.active {
+    border-radius: 4px 4px 0 0;
+}
+section.cell.title .theme a.toggle {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+section.cell.title .theme a.toggle::before,
+section.cell.title .theme a.toggle::after {
+    display: block;
+    content: '';
+}
+section.cell.title .theme a.toggle::before {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+section.cell.title .theme a.toggle::after {
+    width: 10px;
+    height: 10px;
+    background-color: var(--theme-background);
+    mask-image: url('../gfx/theme/toggle.svg');
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transform: rotate(0);
+    transform-origin: 50%;
+    transition: transform 100ms;
+    will-change: transform;
+}
+section.cell.title .theme.active a.toggle::after {
+    transform: rotate(180deg);
+}
+section.cell.title .theme .list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    width: 82px;
+    margin-right: -1px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    box-shadow: -1px 1px 4px rgba(black, 0.125);
+    border: 1px solid var(--theme-border);
+    border-radius: 4px 0 4px 4px;
+}
+section.cell.title .theme:not(.active) .list {
+    display: none;
+}
+section.cell.title .theme a.color {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: transparent;
+    transition: background-color 160ms;
+    will-change: background-color;
+}
+section.cell.title .theme a.color::before {
+    display: block;
+    width: 24px;
+    height: 24px;
+    content: '';
+    border: 1px solid;
+    border-radius: 50%;
+}
+section.cell.title .theme a.color.grey::before {
+    background-color: $grey9;
+    border-color: $grey6;
+}
+section.cell.title .theme a.color.snow::before {
+    background-color: $snow3;
+    border-color: $snow6;
+}
+section.cell.title .theme a.color.gold::before {
+    background-color: $gold6;
+    border-color: $gold9;
+}
+section.cell.title .theme a.color.blue::before {
+    background-color: $blue6;
+    border-color: $blue9;
+}
+section.cell.title .credit {
+    margin-top: auto;
+    color: var(--theme-color);
+    font-size: 0.625rem;
+}
+section.cell.title .credit::before {
+    margin-right: 0.25em;
+    content: '\2b';
+}
+section.cell.title .credit a {
+    color: inherit;
+    text-decoration: line-through;
+}
+section.cell.title .credit a:hover {
+    @media (pointer: fine) {
+        text-decoration: underline;
+    }
+}
+
+html.theme_grey section.cell.title .theme a.toggle::before {
+    background-color: $grey9;
+    border-color: $grey6;
+}
+html.theme_snow section.cell.title .theme a.toggle::before {
+    background-color: $snow3;
+    border-color: $snow6;
+}
+html.theme_snow section.cell.title .theme a.toggle::after {
+    background-color: $snow6;
+}
+html.theme_gold section.cell.title .theme a.toggle::before {
+    background-color: $gold6;
+    border-color: $gold9;
+}
+html.theme_blue section.cell.title .theme a.toggle::before {
+    background-color: $blue6;
+    border-color: $blue9;
+}
+
+/* -------------------------------------------------------------------- TITLE --- */
+section.cell .title {
+    display: flex;
+    align-items: center;
+}
+section.cell .title h2 {
+    margin-left: 0.5em;
+    color: var(--theme-color);
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* -------------------------------------------------------------------- CHART --- */
+section.cell .chart {
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+section.cell .chart > div {
+    background-color: var(--theme-time-foreground);
+    mask-image: url('../gfx/chart/mask.svg');
+    mask-position: center;
+    mask-size: contain;
+    @include position-fill(absolute);
+}
+section.cell .chart .mask {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transform-origin: 0 50%;
+}
+section.cell .chart .mask:last-child {
+    transform: rotate(180deg);
+}
+section.cell .chart .mask::before {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    display: block;
+    width: 150%;
+    height: 200%;
+    content: '';
+    background-color: var(--theme-time-background);
+    transform-origin: 0 50%;
+}
+section.cell .chart .mask:first-child::before {
+    transform: rotate(calc(min(var(--rotate, 0), 180) * 1deg));
+}
+section.cell .chart .mask:last-child::before {
+    transform: rotate(calc(max(0, (var(--rotate, 0) - 180)) * 1deg));
+}
+
+/* --------------------------------------------------------------------- STAT --- */
+section.cell .stat {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1.25rem;
+}
+section.cell .stat div {
+    color: var(--theme-color);
+    font-size: 0.75rem;
+    text-align: right;
+    opacity: 0.75;
+}
+section.cell .stat div:not(:last-child) {
+    margin-bottom: 0.25em;
+}
+section.cell .stat div::after {
+    margin-left: 0.5em;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+section.cell .stat .millisecond::after {
+    content: 'ms';
+}
+section.cell .stat .second::after {
+    content: 'sc';
+}
+section.cell .stat .minute::after {
+    content: 'mn';
+}
+section.cell .stat .hour::after {
+    content: 'hr';
+}
+section.cell .stat .day::after {
+    content: 'da';
+}
+section.cell .stat .week::after {
+    content: 'wk';
+}
+section.cell .stat .month::after {
+    content: 'mo';
+}
+section.cell .stat .year::after {
+    content: 'yr';
+}
+section.cell .stat .decade::after {
+    content: 'dc';
+}
+section.cell .stat .century::after {
+    content: 'ct';
+}
+
+/* ------------------------------------------------------------------ PERCENT --- */
+section.cell .percent {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 0.125em;
+    color: var(--theme-color);
+    font-size: 5em;
+    font-weight: 700;
+}
+section.cell .percent::after {
+    content: '\25';
+    font-size: 75%;
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+/* ----------------------------------------------------------------- PROGRESS --- */
+section.cell .progress {
+    position: relative;
+    width: 100%;
+    height: 0.5em;
+    overflow: hidden;
+    background-color: var(--theme-time-background);
+    border-radius: 2px;
+}
+section.cell .progress .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc((var(--width) * 1%));
+    height: 100%;
+    background-color: var(--theme-time-foreground);
+}

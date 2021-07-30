@@ -1,0 +1,20 @@
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////// MAIN /// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------- MAIN --- */
+main {
+    display: grid;
+    min-height: calc((var(--vh, 1vh) * 100));
+    grid-auto-rows: auto;
+    gap: 1px;
+    @media (min-width: ($break1 + 1px)) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: $break1) and (min-width: ($break0 + 1px)) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $break0) {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,57 @@
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// VAR /// */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+/* ------------------------------------------------------------------- FAMILY --- */
+$family: ('Roboto Mono', monospace);
+
+/* -------------------------------------------------------------------- COLOR --- */
+/* grey */
+$grey9: #222222;
+$grey6: #292929;
+
+/* snow */
+$snow6: #dcdcdc;
+$snow3: #f5f5f5;
+
+/* gold */
+$gold9: #f1d41b;
+$gold6: #ffdf1c;
+
+/* blue */
+$blue9: darken(#1155cc, 5%);
+$blue6: #1155cc;
+
+/* -------------------------------------------------------------------- THEME --- */
+html.theme_grey {
+    --theme-background: #222222;
+    --theme-border: #4a4a4a;
+    --theme-color: white;
+    --theme-time-background: #787878;
+    --theme-time-foreground: white;
+}
+html.theme_snow {
+    --theme-background: #f5f5f5;
+    --theme-border: #ababab;
+    --theme-color: #0f0d0d;
+    --theme-time-background: #a1a1a1;
+    --theme-time-foreground: #0f0d0d;
+}
+html.theme_gold {
+    --theme-background: #ffde1c;
+    --theme-border: #b29b18;
+    --theme-color: #0f0d0d;
+    --theme-time-background: #b29b18;
+    --theme-time-foreground: #0f0d0d;
+}
+html.theme_blue {
+    --theme-background: #1c5bce;
+    --theme-border: #4375d6;
+    --theme-color: white;
+    --theme-time-background: #7498e2;
+    --theme-time-foreground: white;
+}
+
+/* -------------------------------------------------------------------- BREAK --- */
+$break1: 1000px;
+$break0: 680px;
